@@ -88,7 +88,7 @@ SearchView.OnCloseListener {
 		
 		switch (v.getId()) {
 		case R.id.profile:
-			startActivity(new Intent(getApplicationContext(), CampaignsActivity.class));
+			startActivity(new Intent(getApplicationContext(), ThankYouActivity.class));
 			break;
 		case R.id.Maps_button:
 			startActivity(new Intent(getApplicationContext(), MapsActivity.class));
