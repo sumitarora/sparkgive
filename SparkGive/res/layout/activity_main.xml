@@ -1,7 +1,36 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    tools:ignore="MergeRootFrame" />
+    >
+    
+   <RelativeLayout
+        android:id="@+id/footer_view"
+        android:layout_width="420dp"
+        android:layout_height="120dp"
+        android:background="@drawable/footer_bar"
+        android:layout_alignParentBottom="true">
+    
+    <ImageView
+        android:id="@+id/profile"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:padding="10dp"
+        android:src="@drawable/profile_icon" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:padding="10dp"
+        android:layout_toRightOf = "@id/profile"
+        android:src="@drawable/profile_icon" />
+    
+	</RelativeLayout>
+     
+</RelativeLayout>
+
