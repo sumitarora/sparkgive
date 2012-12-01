@@ -7,5 +7,10 @@
     <string name="title_section1">Section 1</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
+    <string name="title_activity_thank_you">ThankYouActivity</string>
+    <string name="title_activity_redeem">RedeemActivity</string>
+    <string name="title_activity_share">ShareActivity</string>
+    <string name="title_activity_campaigns">CampaignsActivity</string>
+    <string name="title_activity_maps">MapsActivity</string>
 
 </resources>
