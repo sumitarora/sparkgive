@@ -12,5 +12,6 @@
     <string name="title_activity_share">ShareActivity</string>
     <string name="title_activity_campaigns">CampaignsActivity</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_publiccards">PublicCardsActivity</string>
 
 </resources>
