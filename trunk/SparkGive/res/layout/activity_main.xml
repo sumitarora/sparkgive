@@ -5,12 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     >
-    <RelativeLayout
+   <!--  <RelativeLayout
         android:id="@+id/header_view"
         android:layout_width="420dp"
         android:layout_height="70dp"
         android:background="@drawable/footer_bar"
         android:layout_alignParentTop="true">
+        
         
         <ImageView
         android:id="@+id/searchButton"
@@ -32,7 +33,13 @@
         
         
         
-    </RelativeLayout>
+    </RelativeLayout> -->
+    
+    <TextView
+            android:id="@+id/status_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"/>
    <RelativeLayout
         android:id="@+id/footer_view"
         android:layout_width="420dp"

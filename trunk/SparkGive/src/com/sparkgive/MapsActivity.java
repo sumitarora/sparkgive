@@ -7,6 +7,7 @@ import java.util.List;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -19,6 +20,7 @@ import com.google.android.maps.OverlayItem;
 import com.sparkgive.components.SimpleItemizedOverlay;
 
 public class MapsActivity extends MapActivity {
+
 
 	MapView mapView;
 	List<Overlay> mapOverlays;
@@ -105,6 +107,8 @@ public class MapsActivity extends MapActivity {
 		if (itemizedOverlay2.getFocus() != null) outState.putInt("focused_2", itemizedOverlay2.getLastFocusedIndex());
 		super.onSaveInstanceState(outState);
 	
+		// enables the activity icon as a 'home' button. required if "android:targetSdkVersion" > 14
+        getActionBar().setHomeButtonEnabled(true);
 	}
 
 	@Override
@@ -112,20 +116,22 @@ public class MapsActivity extends MapActivity {
 		menu.add(0, 0, 1, "Remove Overlay");
 		return true;
 	}
+	
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.getItemId() == 0) {
-			
-			// example hiding balloon before removing overlay
-			if (itemizedOverlay.getFocus() != null) {
-				itemizedOverlay.hideBalloon();
-			}
-			mapOverlays.remove(itemizedOverlay);
-			mapView.invalidate();
-			
-		}
-		return true;
+		
+		switch (item.getItemId()) 
+	       {        
+	          case android.R.id.home:            
+	             Intent intent = new Intent(this, MainActivity.class);            
+	             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
+	             startActivity(intent);            
+	             return true;        
+	          default:            
+	             return super.onOptionsItemSelected(item);    
+	       }
+		
 	}
 	
 	
