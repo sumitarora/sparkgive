@@ -22,6 +22,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.sparkgive.ThankYouActivity"
+            android:label="@string/title_activity_thank_you" >
+        </activity>
+        <activity
+            android:name="com.sparkgive.RedeemActivity"
+            android:label="@string/title_activity_redeem" >
+        </activity>
+        <activity
+            android:name="com.sparkgive.ShareActivity"
+            android:label="@string/title_activity_share" >
+        </activity>
+        <activity
+            android:name="com.sparkgive.CampaignsActivity"
+            android:label="@string/title_activity_campaigns" >
+        </activity>
+        <activity
+            android:name="com.sparkgive.MapsActivity"
+            android:label="@string/title_activity_maps" >
+        </activity>
     </application>
 
 </manifest>
