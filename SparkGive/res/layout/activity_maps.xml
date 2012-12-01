@@ -4,11 +4,12 @@
     android:layout_height="match_parent"
     tools:context=".MapsActivity" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/hello_world" />
+    <com.readystatesoftware.maps.TapControlledMapView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mapview"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:clickable="true"
+ android:apiKey="0Dbil1ZiJ-C61t_rTcRfxzc_J99NXTKA98cNtQw" />
 
 </RelativeLayout>
