@@ -1,5 +1,7 @@
 package com.sparkgive;
 
+import com.sparkgive.model.SparkGiveModel;
+
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
@@ -24,6 +26,11 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+    	
+    	SparkGiveModel.nearByPlaces.add("Place 1");
+    	SparkGiveModel.nearByPlaces.add("Place 2");
+    	SparkGiveModel.nearByPlaces.add("Place 3");
+    	
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
