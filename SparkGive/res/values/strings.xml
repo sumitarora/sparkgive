@@ -13,5 +13,7 @@
     <string name="title_activity_campaigns">CampaignsActivity</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="title_activity_publiccards">PublicCardsActivity</string>
-
+    <string name="open_search">search</string>
+	<string name="close_search">closed</string>
+	<string name="action_bar_search">action bar search</string>
 </resources>
