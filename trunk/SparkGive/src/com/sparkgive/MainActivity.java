@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.SearchManager;
 import android.app.SearchableInfo;
 import android.content.Context;
@@ -13,27 +14,30 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.StackView;
 import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
 
 import com.sparkgive.components.Card;
 import com.sparkgive.components.StackAdapter;
 import com.sparkgive.components.StackItem;
 import com.sparkgive.model.SparkGiveModel;
 
-public class MainActivity extends FragmentActivity implements OnClickListener, SearchView.OnQueryTextListener,
+public class MainActivity extends Activity implements OnClickListener, SearchView.OnQueryTextListener,
 SearchView.OnCloseListener {
 
 	private ImageView profileButton, mapsButton, publicCardsButton, settingsButton;
 	private TextView  mStatusView;
-	//private SearchView mSearchView;
+	private SearchView mSearchView;
 //	private Button mRedeemButton;
 	ArrayList<Card> mCardList;
 	ArrayList<StackItem> mStackItems;
@@ -72,32 +76,39 @@ SearchView.OnCloseListener {
         
       
 //        reloadCards();
-        mCardList = SparkGiveModel.cardList; 
+         
         
-        mStackItems = new ArrayList<StackItem>();
-        
-       loadStackView(mCardList.size());
- 
+       mStackItems = new ArrayList<StackItem>();
        createStackView();
         
     }
 
     private void createStackView() {
+    	mCardList = SparkGiveModel.cardList;
+    	mStackItems.clear();
+    	for (int i = 0; i<mCardList.size(); i++) {
+    		mStackItems.add(new StackItem(this.getResources().getDrawable(mCardList.get(i).getResourceId())));
+    	}
     	///Stackview
         StackView stk = (StackView)this.findViewById(R.id.stackView1);
     	StackAdapter adapt = new StackAdapter(this, R.layout.item, mStackItems);
     	 
-        stk.setAdapter(adapt); 
+        stk.setAdapter(adapt);
     }
     
-    @Override
+    private void notifyDataSetChanged() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
 
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.layout.searchview_in_menu, menu);
-        //mSearchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
-        //setupSearchView();
+        mSearchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        setupSearchView();
 
         return true;
     }
@@ -131,7 +142,7 @@ SearchView.OnCloseListener {
 
     private void setupSearchView() {
 
-        //mSearchView.setIconifiedByDefault(true);
+        mSearchView.setIconifiedByDefault(true);
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         if (searchManager != null) {
@@ -145,36 +156,43 @@ SearchView.OnCloseListener {
                     info = inf;
                 }
             }
-            //mSearchView.setSearchableInfo(info);
+            mSearchView.setSearchableInfo(info);
         }
 
-       // mSearchView.setOnQueryTextListener(this);
-        //mSearchView.setOnCloseListener(this);
+        mSearchView.setOnQueryTextListener(this);
+        mSearchView.setOnCloseListener(this);
     }
 
+
+//        @Override
+//        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+//            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+//            	search("kids");
+//                return true;
+//            }
+//            return false;
+//        }
+    
+    
     public boolean onQueryTextChange(String newText) {
 //        mStatusView.setText("Query = " + newText);
-        return false;
+        return true;
     }
 
     public boolean onQueryTextSubmit(String query) {
 //        mStatusView.setText("Query = " + query + " : submitted");
     	search("kids");
-        return false;
+        return true;
     }
     
     private void search(String query) {
     	SparkGiveModel.cardList.clear();
     	SparkGiveModel.cardList.add(new Card("details for shoppers drug mart", "sick kids", R.drawable.sick_kids_card));
-//    	loadStackView(length)
+    	createStackView();
     	return;
     }
 
-    private void loadStackView(int length) {
-    	for (int i = 0; i<length; i++) {
-    		mStackItems.add(new StackItem(this.getResources().getDrawable(mCardList.get(i).getResourceId())));
-    	}
-    }
+    
     
     private void reloadCards() {
     	SparkGiveModel.cardList.clear();

@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    >
+   
+     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+ 
+    <StackView
+        android:id="@+id/stackView2"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+    </StackView>
+ 
+</FrameLayout>
+
+    
+   <RelativeLayout
+        android:id="@+id/footer_view2"
+        android:layout_width="420dp"
+        android:layout_height="70dp"
+        android:background="@drawable/footer_bar"
+        android:layout_alignParentBottom="true">
+    
+    <ImageView
+        android:id="@+id/profile2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:padding="15dp"
+        android:src="@drawable/profile_icon" />
+    
+    <ImageView
+        android:id="@+id/Maps_button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="15dp"
+        android:layout_toRightOf ="@id/profile"
+        android:src="@drawable/maps_icon" />
+    
+    <ImageView
+        android:id="@+id/list2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="15dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/list_icon" />
+    
+    <ImageView
+        android:id="@+id/public_cards2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="15dp"
+        android:layout_toLeftOf = "@id/list"
+        android:src="@drawable/add_icon" />
+    
+    
+    
+	</RelativeLayout>
+
+
+
+     
+</RelativeLayout>
+

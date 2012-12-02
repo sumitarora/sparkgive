@@ -96,17 +96,17 @@ SearchView.OnCloseListener {
     }
 
     public boolean onQueryTextChange(String newText) {
-        mStatusView.setText("Query = " + newText);
+//        mStatusView.setText("Query = " + newText);
         return false;
     }
 
     public boolean onQueryTextSubmit(String query) {
-        mStatusView.setText("Query = " + query + " : submitted");
+//        mStatusView.setText("Query = " + query + " : submitted");
         return false;
     }
 
     public boolean onClose() {
-        mStatusView.setText("Closed!");
+//        mStatusView.setText("Closed!");
         return false;
     }
 
