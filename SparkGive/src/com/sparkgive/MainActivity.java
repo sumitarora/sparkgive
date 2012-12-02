@@ -57,8 +57,8 @@ SearchView.OnCloseListener {
         Bitmap actionBarBackground = BitmapFactory.decodeResource(getResources(), R.drawable.footer_bar);
         BitmapDrawable background = new BitmapDrawable(getResources(), actionBarBackground);
         
-//        actionBar.setBackgroundDrawable(background);
-//        actionBar.setHomeButtonEnabled(true);
+        actionBar.setBackgroundDrawable(background);
+        actionBar.setHomeButtonEnabled(true);
         
         profileButton = (ImageView) findViewById(R.id.profile);
         mapsButton = (ImageView) findViewById(R.id.Maps_button);
