@@ -5,15 +5,17 @@ public class Card {
 	private String details;
 	private String cardName;
 	private int resourceId;
+	private int resourceIdRedeem;
 
 	public Card() {
 		// Default
 	}
 	
-	public Card(String details, String cardName, int resourceId) {
+	public Card(String details, String cardName, int resourceId, int resourceIdRedeem) {
 		this.details = details;
 		this.cardName = cardName;
 		this.resourceId = resourceId;
+		this.resourceIdRedeem =  resourceIdRedeem;
 	}
 	
 	public String getDetails() {
@@ -38,5 +40,13 @@ public class Card {
 
 	public void setResourceId(int resourceId) {
 		this.resourceId = resourceId;
+	}
+
+	public int getResourceIdRedeem() {
+		return resourceIdRedeem;
+	}
+
+	public void setResourceIdRedeem(int resourceIdRedeem) {
+		this.resourceIdRedeem = resourceIdRedeem;
 	}
 }
