@@ -13,8 +13,12 @@ public class SparkGiveModel
 	
 	
 	public static ArrayList<Card> cardList = new ArrayList<Card>() {{ 
-	add(new Card("details for PC", "PC"));
-	add(new Card("details for P&G", "xyz"));
+	add(new Card("details for PC", "food banks",R.drawable.food_banks_card));
+	add(new Card("details for shoppers drug mart", "sick kids", R.drawable.sick_kids_card));
+	add(new Card("details for starbucks", "breast cancer", R.drawable.breast_cancer_card));
+	add(new Card("details for PC", "food banks",R.drawable.food_banks_card));
+	add(new Card("details for shoppers drug mart", "sick kids", R.drawable.sick_kids_card));
+	add(new Card("details for starbucks", "breast cancer", R.drawable.breast_cancer_card));
 	}};
 	
 }

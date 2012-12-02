@@ -10,7 +10,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.sparkgive.components.Card;
@@ -19,6 +21,7 @@ import com.sparkgive.model.SparkGiveModel;
 public class RedeemActivity extends Activity implements OnClickListener {
 	private ImageView profileButton, mapsButton, publicCardsButton, settingsButton;
 	private int mCardIndex;
+	private Button mDoneButton, mShareButton;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,31 +39,43 @@ public class RedeemActivity extends Activity implements OnClickListener {
         mapsButton = (ImageView) findViewById(R.id.Maps_button);
         publicCardsButton = (ImageView) findViewById(R.id.public_cards);
         settingsButton = (ImageView) findViewById(R.id.list);
+        mDoneButton = (Button) findViewById(R.id.doneButton);
+        mShareButton = (Button) findViewById(R.id.shareButton);
         
         profileButton.setOnClickListener(this);
         mapsButton.setOnClickListener(this);
         publicCardsButton.setOnClickListener(this);
         settingsButton.setOnClickListener(this);
+        mDoneButton.setOnClickListener(this);
+        mShareButton.setOnClickListener(this);
         
         
         Intent intent = getIntent();
         mCardIndex = Integer.parseInt(intent.getStringExtra("tag"));
         Card selectedCard = SparkGiveModel.cardList.get(mCardIndex);
-        String details = selectedCard.getDetails();
         
-        TextView detailsTextView = (TextView) findViewById(R.id.detailsText);
-        detailsTextView.setText(details);
         
         ImageView cardBackImage = (ImageView) findViewById(R.id.cardBack);
-        switch(mCardIndex) {
-        	case 0:
-        	cardBackImage.setBackgroundResource(R.drawable.pc_card);
-        	break;
-        	
-        	case 1:
-            cardBackImage.setBackgroundResource(R.drawable.footer_bar);
-            break;
-        }
+        cardBackImage.setBackgroundResource(selectedCard.getResourceId());
+        
+        String details = selectedCard.getDetails();
+//        RelativeLayout relLayout = (RelativeLayout) findViewById(R.id.card_details);
+//        relLayout.ALIGN_PARENT_BOTTOM;
+        TextView detailsTextView = (TextView) findViewById(R.id.detailsText);
+        detailsTextView.setText(details);
+//        switch(mCardIndex) {
+//        	case 0:
+//        	cardBackImage.setBackgroundResource(R.drawable.pc_card);
+//        	break;
+//        	
+//        	case 1:
+//            cardBackImage.setBackgroundResource(R.drawable.footer_bar);
+//            break;
+//            
+//        	case 2:
+//                cardBackImage.setBackgroundResource(R.drawable.breast_cancer_card);
+//                break;
+//        }
         
 	}
 
@@ -107,7 +122,7 @@ public class RedeemActivity extends Activity implements OnClickListener {
 			startActivity(new Intent(getApplicationContext(), ThankYouActivity.class));
 			break;
 		case R.id.shareButton:
-			// TODO: Sumit
+//			startActivity(new Intent(getApplicationContext(), ShareActivity.class));
 			break;
 		}
 		

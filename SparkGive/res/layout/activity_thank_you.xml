@@ -6,6 +6,7 @@
     tools:context=".ThankYouActivity"
     >
     <LinearLayout 
+        android:id ="@+id/shareView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
@@ -124,6 +125,7 @@
         android:layout_width="420dp"
         android:layout_height="70dp"
         android:background="@drawable/footer_bar"
+        android:layout_below = "@id/shareView"
         android:layout_alignParentBottom="true">
     
     <ImageView
