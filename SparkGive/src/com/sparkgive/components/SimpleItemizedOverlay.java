@@ -56,7 +56,7 @@ public class SimpleItemizedOverlay extends BalloonItemizedOverlay<OverlayItem> {
 		Intent intent = new Intent(c, RedeemActivity.class);
 		
 
-		intent.putExtra("tag", index);
+		intent.putExtra("tag", String.valueOf(index));
 		c.startActivity(intent);
 		return true;
 	}
