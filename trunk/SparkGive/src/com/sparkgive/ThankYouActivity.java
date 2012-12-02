@@ -98,8 +98,8 @@ public class ThankYouActivity extends Activity implements OnClickListener {
 	    @Override
 	    protected void onPostExecute(String result) {
 	      boxTweet.setVisibility(4);
-			boxButtons.setVisibility(0);
-			boxShare.setVisibility(0);
+			//boxButtons.setVisibility(0);
+			//boxShare.setVisibility(0);
 	      Toast.makeText(getApplicationContext(),"Tweet Posted!",Toast.LENGTH_SHORT).show();
 	    }
 	  }
@@ -110,8 +110,8 @@ public class ThankYouActivity extends Activity implements OnClickListener {
     	switch (v.getId()) {
 		case R.id.imgTwitter:
 			boxTweet.setVisibility(0);
-			boxButtons.setVisibility(4);
-			boxShare.setVisibility(4);
+			//boxButtons.setVisibility(4);
+			//boxShare.setVisibility(4);
 			break;
 			
 		case R.id.btnTweet:

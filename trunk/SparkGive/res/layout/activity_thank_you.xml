@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
+    android:background="@drawable/wallpaper"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ThankYouActivity"
@@ -67,9 +68,11 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="10dp"
+        android:paddingLeft="15dp"
         android:paddingTop="10dp"
         android:textAlignment="center"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/txtUsername"
@@ -78,6 +81,8 @@
         android:paddingBottom="10dp"
         android:paddingTop="10dp"
         android:textAlignment="center"
+        android:paddingLeft="15dp"
+        android:textColor="#FFFFFF"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -86,6 +91,8 @@
         android:layout_height="wrap_content"
         android:paddingBottom="10dp"
         android:paddingTop="10dp"
+        android:paddingLeft="15dp"
+        android:textColor="#FFFFFF"
         android:textAlignment="center"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -94,22 +101,32 @@
        android:layout_width="fill_parent"
        android:layout_height="wrap_content"
        android:orientation="horizontal"
-       android:gravity="center_horizontal" >
+       android:gravity="center_horizontal"
+       android:paddingTop="25dp" 
+       >
 
-       	     <ImageButton
+     <ImageView
        	         android:id="@+id/imgFacebook"
        	         android:layout_width="wrap_content"
        	         android:layout_height="wrap_content"
        	         android:src="@drawable/facebook" />
-	
-	    <ImageButton
+
+		<ImageView
+		    android:layout_width="20dp"
+		    android:layout_height="wrap_content" />
+
+	    <ImageView
 	        android:id="@+id/imgTwitter"
 	        android:clickable="true"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:src="@drawable/twitter" />
-	    
-	   	<ImageButton
+		
+		<ImageView
+		    android:layout_width="20dp"
+		    android:layout_height="wrap_content" />
+			    
+	   	<ImageView
 	        android:id="@+id/imgGoogle"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
@@ -121,20 +138,19 @@
        android:layout_width="fill_parent"
        android:layout_height="wrap_content"
        android:orientation="horizontal"
-       android:gravity="center_horizontal">
-        <Button
-        android:id="@+id/button1d"
-        style="?android:attr/buttonStyleSmall"
+       android:gravity="center_horizontal"
+       android:paddingTop="15dp">
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Donate a Tweet" />
+        android:src="@drawable/donatetweet" />
     
-    <Button
-        android:id="@+id/button1"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Visit Campaign" />   
+<!--     <Button -->
+<!--         android:id="@+id/button1" -->
+<!--         style="?android:attr/buttonStyleSmall" -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:text="Visit Campaign" />    -->
        
    </LinearLayout>
    
