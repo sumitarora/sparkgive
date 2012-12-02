@@ -168,11 +168,11 @@ SearchView.OnCloseListener {
     
     private void reloadCards() {
     	SparkGiveModel.cardList.clear();
-    	SparkGiveModel.cardList.add(new Card("details for PC", "food banks",R.drawable.final_loblaws_foodbank, R.drawable.back_loblaws));
-    	SparkGiveModel.cardList.add(new Card("details for shoppers drug mart", "sick kids", R.drawable.final_sdm_sickkids, R.drawable.back_sickkids));
-    	SparkGiveModel.cardList.add(new Card("details for starbucks", "breast cancer", R.drawable.final_star, R.drawable.back_starbucks));
-    	SparkGiveModel.cardList.add(new Card("details for Toysrus", "food banks",R.drawable.final_toysrus, R.drawable.back_toysrus));
-    	SparkGiveModel.cardList.add(new Card("details for Toysrus", "food banks",R.drawable.final_walmartredcross, R.drawable.back_walmart));
+    	SparkGiveModel.cardList.add(new Card("Loblaws will donate food worth 5% of your purchase price, given a purchase of at least $50, to Food Bank Canada. SparkCard expires on March 31, 2013.", "food banks",R.drawable.final_loblaws_foodbank, R.drawable.back_loblaws));
+    	SparkGiveModel.cardList.add(new Card("Shoppers Drug Mart will support SickKids Foundation by donating 3% of your purchase price, given a purchase of at least $40, to help sick kids ail faster. SparkCard expires on May 15, 2013.", "sick kids", R.drawable.final_sdm_sickkids, R.drawable.back_sickkids));
+    	SparkGiveModel.cardList.add(new Card("Starbucks will donate 2% of your purchase price, given a purchase of $5 or more, to the Canadian Breast Cancer Research Foundation. SparkCard expires on June 1, 2013.", "breast cancer", R.drawable.final_star, R.drawable.back_starbucks));
+    	SparkGiveModel.cardList.add(new Card("ToyRUs will donate 1% of your  purchase cost, given a purchase of $50 or more, to Make A Wish Foundation to help grant a child a wish. SparkCard expires on September 21, 2013.", "wish",R.drawable.final_toysrus, R.drawable.back_toysrus));
+    	SparkGiveModel.cardList.add(new Card("Walmart will donate 15% of your purchase price, on purchase worth $200 or more, to Global Women's Economic Empowerment. SparkCard valid on Women's Day (March 8, 2013).", "Red cross",R.drawable.final_walmartredcross, R.drawable.back_walmart));
     }
     
     public boolean onClose() {
