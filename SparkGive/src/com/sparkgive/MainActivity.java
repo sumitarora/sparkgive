@@ -1,11 +1,9 @@
 package com.sparkgive;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import com.sparkgive.model.SparkGiveModel;
-
 import android.app.ActionBar;
-import android.app.FragmentTransaction;
 import android.app.SearchManager;
 import android.app.SearchableInfo;
 import android.content.Context;
@@ -14,28 +12,27 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.NavUtils;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SearchView;
+import android.widget.StackView;
 import android.widget.TextView;
+
+import com.sparkgive.components.StackAdapter;
+import com.sparkgive.components.StackItem;
+import com.sparkgive.model.SparkGiveModel;
 
 public class MainActivity extends FragmentActivity implements OnClickListener, SearchView.OnQueryTextListener,
 SearchView.OnCloseListener {
 
 	private ImageView profileButton, mapsButton, publicCardsButton, settingsButton;
 	private TextView  mStatusView;
-	private SearchView mSearchView;
+	//private SearchView mSearchView;
 
 	
     @Override
@@ -61,12 +58,26 @@ SearchView.OnCloseListener {
         mapsButton = (ImageView) findViewById(R.id.Maps_button);
         publicCardsButton = (ImageView) findViewById(R.id.public_cards);
         settingsButton = (ImageView) findViewById(R.id.list);
-        mStatusView = (TextView) findViewById(R.id.status_text);
+        //mStatusView = (TextView) findViewById(R.id.status_text);
         
         profileButton.setOnClickListener(this);
         mapsButton.setOnClickListener(this);
         publicCardsButton.setOnClickListener(this);
         settingsButton.setOnClickListener(this);
+        
+      ///Stackview
+        StackView stk = (StackView)this.findViewById(R.id.stackView1);
+        
+        ArrayList<StackItem> items = new ArrayList<StackItem>();
+        items.add(new StackItem(this.getResources().getDrawable(R.drawable.d1)));
+        items.add(new StackItem(this.getResources().getDrawable(R.drawable.d2)));
+        items.add(new StackItem(this.getResources().getDrawable(R.drawable.d3)));
+        items.add(new StackItem(this.getResources().getDrawable(R.drawable.d3)));
+       
+ 
+        StackAdapter adapt = new StackAdapter(this, R.layout.item, items);
+ 
+        stk.setAdapter(adapt);
         
     }
 
@@ -76,8 +87,8 @@ SearchView.OnCloseListener {
 
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.layout.searchview_in_menu, menu);
-        mSearchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
-        setupSearchView();
+        //mSearchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        //setupSearchView();
 
         return true;
     }
@@ -104,7 +115,7 @@ SearchView.OnCloseListener {
 
     private void setupSearchView() {
 
-        mSearchView.setIconifiedByDefault(true);
+        //mSearchView.setIconifiedByDefault(true);
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         if (searchManager != null) {
@@ -118,11 +129,11 @@ SearchView.OnCloseListener {
                     info = inf;
                 }
             }
-            mSearchView.setSearchableInfo(info);
+            //mSearchView.setSearchableInfo(info);
         }
 
-        mSearchView.setOnQueryTextListener(this);
-        mSearchView.setOnCloseListener(this);
+       // mSearchView.setOnQueryTextListener(this);
+        //mSearchView.setOnCloseListener(this);
     }
 
     public boolean onQueryTextChange(String newText) {

@@ -51,7 +51,7 @@ public class TestSearchActivity extends Activity implements SearchView.OnQueryTe
 
         setContentView(R.layout.searchview_actionbar);
 
-        mStatusView = (TextView) findViewById(R.id.status_text);
+        //mStatusView = (TextView) findViewById(R.id.status_text);
 //        mOpenButton = (Button) findViewById(R.id.open_button);
 //        mCloseButton = (Button) findViewById(R.id.close_button);
 //        mOpenButton.setOnClickListener(this);
