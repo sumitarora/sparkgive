@@ -72,30 +72,22 @@ SearchView.OnCloseListener {
         publicCardsButton.setOnClickListener(this);
         settingsButton.setOnClickListener(this);
 
-        
-      
-        reloadCards();
-        mStackItems = new ArrayList<StackItem>();
-        
-        //loadStackView(mCardList.size());
-        createStackView();
-    }
-
-    private void createStackView() {
-    	mCardList = SparkGiveModel.cardList;
-    	mStackItems.clear();
-    	for (int i = 0; i<mCardList.size(); i++) {
-    		mStackItems.add(new StackItem(this.getResources().getDrawable(mCardList.get(i).getResourceId())));
-    	}
+       mStackItems = new ArrayList<StackItem>();
+       mCardList = SparkGiveModel.cardList;
+       
+       for(int i=0; i<mCardList.size(); i++) {
+    	   mStackItems.add(new StackItem(this.getResources().getDrawable(mCardList.get(i).getResourceId())));
+       }
+      	///Stackview
         StackView stk = (StackView)this.findViewById(R.id.stackView1);
-    	StackAdapter adapt = new StackAdapter(this, R.layout.item, mStackItems);
+      	StackAdapter adapt = new StackAdapter(this, R.layout.item, mStackItems);
+   	
+   	 
         stk.setAdapter(adapt);
+
     }
     
-    private void notifyDataSetChanged() {
-		// TODO Auto-generated method stub
-		
-	}
+    
 
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -112,8 +104,7 @@ SearchView.OnCloseListener {
     @Override
     protected void onResume() {
     	super.onResume();
-    	reloadCards();
-    	createStackView();
+    	
     }
     
     @Override
@@ -156,25 +147,21 @@ SearchView.OnCloseListener {
 
         mSearchView.setOnQueryTextListener(this);
         mSearchView.setOnCloseListener(this);
-    }    
-    
+
+    }
+
+
     public boolean onQueryTextChange(String newText) {
-//        mStatusView.setText("Query = " + newText);
+       
         return true;
     }
 
     public boolean onQueryTextSubmit(String query) {
-//        mStatusView.setText("Query = " + query + " : submitted");
-    	search("kids");
+
+    	startActivity(new Intent(getApplicationContext(), SearchableActivity.class));
         return true;
     }
     
-    private void search(String query) {
-    	SparkGiveModel.cardList.clear();
-    	SparkGiveModel.cardList.add(new Card("details for shoppers drug mart", "sick kids", R.drawable.sick_kids_card, R.drawable.back_sickkids));
-    	createStackView();
-    	return;
-    }
 
     
     
@@ -188,7 +175,7 @@ SearchView.OnCloseListener {
     }
     
     public boolean onClose() {
-        mStatusView.setText("Closed!");
+       
         return false;
     }
     
