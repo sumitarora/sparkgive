@@ -13,9 +13,9 @@ public class SparkGiveModel
 	
 	
 	public static ArrayList<Card> cardList = new ArrayList<Card>() {{ 
-	add(new Card("details for PC", "food banks",R.drawable.foodbankcanada,R.drawable.back_sickkids));
-	add(new Card("details for shoppers drug mart", "sick kids", R.drawable.back_sickkids, R.drawable.back_sickkids));
-	add(new Card("details for starbucks", "breast cancer", R.drawable.back_starbucks, R.drawable.back_sickkids));
+	add(new Card("details for food banks and PC", "food banks",R.drawable.foodbankcanada,R.drawable.back_sickkids));
+	add(new Card("details for sick kids and shoppers", "sick kids", R.drawable.back_sickkids, R.drawable.back_sickkids));
+	add(new Card("details for breast cancer foundation and starbucks", "breast cancer", R.drawable.back_starbucks, R.drawable.back_sickkids));
 	add(new Card("details for PC", "food banks",R.drawable.back_walmart, R.drawable.back_sickkids));
 	add(new Card("details for shoppers drug mart", "sick kids", R.drawable.back_loblaws, R.drawable.back_sickkids));
 	add(new Card("details for starbucks", "breast cancer", R.drawable.back_toysrus, R.drawable.back_sickkids));
