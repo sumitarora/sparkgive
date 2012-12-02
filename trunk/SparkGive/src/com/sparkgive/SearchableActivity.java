@@ -65,7 +65,7 @@ public class SearchableActivity extends Activity implements OnClickListener {
         
        mStackItems = new ArrayList<StackItem>();
       mStackItems.add(new StackItem(this.getResources().getDrawable(R.drawable.sick_kids_card)));
-      mStackItems.add(new StackItem(this.getResources().getDrawable(R.drawable.sick_kids_card)));
+      mStackItems.add(new StackItem(this.getResources().getDrawable(R.drawable.sick_kids_chucke)));
    	
    	///Stackview
        StackView stk = (StackView)this.findViewById(R.id.stackView2);
