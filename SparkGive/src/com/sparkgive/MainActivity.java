@@ -33,7 +33,7 @@ SearchView.OnCloseListener {
 	private ImageView profileButton, mapsButton, publicCardsButton, settingsButton;
 	private TextView  mStatusView;
 	//private SearchView mSearchView;
-
+//	private Button mRedeemButton;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +50,7 @@ SearchView.OnCloseListener {
         final ActionBar actionBar = getActionBar(); 
         Bitmap actionBarBackground = BitmapFactory.decodeResource(getResources(), R.drawable.footer_bar);
         BitmapDrawable background = new BitmapDrawable(getResources(), actionBarBackground);
-        background.setTileModeX(android.graphics.Shader.TileMode.REPEAT); 
+        
         actionBar.setBackgroundDrawable(background);
         actionBar.setHomeButtonEnabled(true);
         
@@ -59,11 +59,13 @@ SearchView.OnCloseListener {
         publicCardsButton = (ImageView) findViewById(R.id.public_cards);
         settingsButton = (ImageView) findViewById(R.id.list);
         //mStatusView = (TextView) findViewById(R.id.status_text);
+//        mRedeemButton = (Button) findViewById(R.id.redeemButton);
         
         profileButton.setOnClickListener(this);
         mapsButton.setOnClickListener(this);
         publicCardsButton.setOnClickListener(this);
         settingsButton.setOnClickListener(this);
+//        mRedeemButton.setOnClickListener(this);
         
       ///Stackview
         StackView stk = (StackView)this.findViewById(R.id.stackView1);
@@ -99,7 +101,7 @@ SearchView.OnCloseListener {
 		
 		switch (v.getId()) {
 		case R.id.profile:
-			startActivity(new Intent(getApplicationContext(), ThankYouActivity.class));
+			startActivity(new Intent(getApplicationContext(), CampaignsActivity.class));
 			break;
 		case R.id.Maps_button:
 			startActivity(new Intent(getApplicationContext(), MapsActivity.class));
@@ -110,6 +112,7 @@ SearchView.OnCloseListener {
 		case R.id.list:
 //			startActivity(new Intent(getApplicationContext(), TestSearchActivity.class));
 			break;
+		
 		}
     }
 

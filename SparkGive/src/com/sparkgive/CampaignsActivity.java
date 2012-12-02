@@ -1,8 +1,12 @@
 package com.sparkgive;
 
 import android.os.Bundle;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -13,15 +17,20 @@ public class CampaignsActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_campaigns);
 		// enables the activity icon as a 'home' button. required if "android:targetSdkVersion" > 14
-        getActionBar().setHomeButtonEnabled(true);
+		final ActionBar actionBar = getActionBar(); 
+        Bitmap actionBarBackground = BitmapFactory.decodeResource(getResources(), R.drawable.footer_bar);
+        BitmapDrawable background = new BitmapDrawable(getResources(), actionBarBackground);
+        
+        actionBar.setBackgroundDrawable(background);
+        actionBar.setHomeButtonEnabled(true);
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_campaigns, menu);
-		return true;
-	}
+//	@Override
+//	public boolean onCreateOptionsMenu(Menu menu) {
+//		// Inflate the menu; this adds items to the action bar if it is present.
+//		getMenuInflater().inflate(R.menu.activity_campaigns, menu);
+//		return true;
+//	}
 	
 	@Override
     public boolean onOptionsItemSelected(MenuItem item) 

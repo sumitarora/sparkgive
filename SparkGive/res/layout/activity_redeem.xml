@@ -4,11 +4,107 @@
     android:layout_height="match_parent"
     tools:context=".RedeemActivity" >
 
+    
+        
+        <RelativeLayout
+        android:id="@+id/card_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+        
+        <ImageView
+        android:id="@+id/cardBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+        
+    	<Button
+    	    android:id ="@+id/doneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/cardBack" 
+        android:text="@string/Done"
+        android:layout_marginLeft="40dp"/>
+    	
+    	<Button
+    	    android:id ="@+id/shareButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/cardBack" 
+        android:layout_alignParentRight="true"
+        android:text="@string/Share"
+        android:layout_marginRight="40dp" />
+   
+    	</RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/card_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardBack">
     <TextView
+        android:id= "@+id/detailsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_alignParentTop="true"
         android:text="@string/hello_world" />
+    
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true" 
+        android:layout_alignParentBottom="true" 
+        android:text="@string/visit_campaign_website"
+        android:layout_marginBottom="90dp"/>
 
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/footer_view"
+        android:layout_width="420dp"
+        android:layout_height="70dp"
+        android:background="@drawable/footer_bar"
+        android:layout_alignParentBottom="true">
+    
+    <ImageView
+        android:id="@+id/profile"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:padding="15dp"
+        android:src="@drawable/profile_icon" />
+    
+    <ImageView
+        android:id="@+id/Maps_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="15dp"
+        android:layout_toRightOf ="@id/profile"
+        android:src="@drawable/maps_icon" />
+    
+    <ImageView
+        android:id="@+id/list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="15dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/list_icon" />
+    
+    <ImageView
+        android:id="@+id/public_cards"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="15dp"
+        android:layout_toLeftOf = "@id/list"
+        android:src="@drawable/add_icon" />
+    
+    
+    
+	</RelativeLayout>
 </RelativeLayout>
