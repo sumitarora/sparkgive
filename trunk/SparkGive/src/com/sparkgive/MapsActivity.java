@@ -54,7 +54,7 @@ public class MapsActivity extends MapActivity {
 		itemizedOverlay.setSnapToCenter(false);
 		
 		GeoPoint point = new GeoPoint((int)(43.6454314*1E6),(int)(-79.3697728*1E6));
-		OverlayItem overlayItem = new OverlayItem(point, "Loblaws Superstore: Live Healthy", 
+		OverlayItem overlayItem = new OverlayItem(point, "Loblaws Superstore Living Fully", 
 				"In partnership with The Food Bank");
 		itemizedOverlay.addOverlay(overlayItem);
 		
