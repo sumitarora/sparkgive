@@ -21,7 +21,7 @@ import com.sparkgive.model.SparkGiveModel;
 public class RedeemActivity extends Activity implements OnClickListener {
 	private ImageView profileButton, mapsButton, publicCardsButton, settingsButton;
 	private int mCardIndex;
-	private Button mDoneButton, mShareButton;
+	private ImageView mDoneButton, mShareButton;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +38,8 @@ public class RedeemActivity extends Activity implements OnClickListener {
         mapsButton = (ImageView) findViewById(R.id.Maps_button);
         publicCardsButton = (ImageView) findViewById(R.id.public_cards);
         settingsButton = (ImageView) findViewById(R.id.list);
-        mDoneButton = (Button) findViewById(R.id.doneButton);
-        mShareButton = (Button) findViewById(R.id.shareButton);
+        mDoneButton = (ImageView) findViewById(R.id.doneButton);
+        mShareButton = (ImageView) findViewById(R.id.shareRedeem);
         
         profileButton.setOnClickListener(this);
         mapsButton.setOnClickListener(this);
@@ -93,7 +93,7 @@ public class RedeemActivity extends Activity implements OnClickListener {
 		case R.id.doneButton:
 			startActivity(new Intent(getApplicationContext(), ThankYouActivity.class));
 			break;
-		case R.id.shareButton:
+		case R.id.shareRedeem:
 			Intent sendIntent = new Intent();
 			sendIntent.setAction(Intent.ACTION_SEND);
 			sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");

@@ -75,6 +75,7 @@ SearchView.OnCloseListener {
        mStackItems = new ArrayList<StackItem>();
        mCardList = SparkGiveModel.cardList;
        
+       reloadCards();
        for(int i=0; i<mCardList.size(); i++) {
     	   mStackItems.add(new StackItem(this.getResources().getDrawable(mCardList.get(i).getResourceId())));
        }
@@ -167,11 +168,11 @@ SearchView.OnCloseListener {
     
     private void reloadCards() {
     	SparkGiveModel.cardList.clear();
-    	SparkGiveModel.cardList.add(new Card("details for PC", "food banks",R.drawable.pc_card, R.drawable.back_loblaws));
-    	SparkGiveModel.cardList.add(new Card("details for shoppers drug mart", "sick kids", R.drawable.sick_kids_card, R.drawable.back_sickkids));
-    	SparkGiveModel.cardList.add(new Card("details for starbucks", "breast cancer", R.drawable.breast_cancer_card, R.drawable.back_starbucks));
-    	SparkGiveModel.cardList.add(new Card("details for Toysrus", "food banks",R.drawable.food_banks_card, R.drawable.back_toysrus));
-    	SparkGiveModel.cardList.add(new Card("details for Wallmart", "food banks",R.drawable.pc_card, R.drawable.back_walmart));
+    	SparkGiveModel.cardList.add(new Card("details for PC", "food banks",R.drawable.final_loblaws_foodbank, R.drawable.back_loblaws));
+    	SparkGiveModel.cardList.add(new Card("details for shoppers drug mart", "sick kids", R.drawable.final_sdm_sickkids, R.drawable.back_sickkids));
+    	SparkGiveModel.cardList.add(new Card("details for starbucks", "breast cancer", R.drawable.final_star, R.drawable.back_starbucks));
+    	SparkGiveModel.cardList.add(new Card("details for Toysrus", "food banks",R.drawable.final_toysrus, R.drawable.back_toysrus));
+    	SparkGiveModel.cardList.add(new Card("details for Toysrus", "food banks",R.drawable.final_walmartredcross, R.drawable.back_walmart));
     }
     
     public boolean onClose() {
