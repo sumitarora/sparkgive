@@ -5,8 +5,12 @@ import java.util.List;
 
 
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.app.ActionBar;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,6 +38,13 @@ public class MapsActivity extends MapActivity {
 		
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+     // enables the activity icon as a 'home' button. required if "android:targetSdkVersion" > 14
+        final ActionBar actionBar = getActionBar(); 
+        Bitmap actionBarBackground = BitmapFactory.decodeResource(getResources(), R.drawable.footer_bar);
+        BitmapDrawable background = new BitmapDrawable(getResources(), actionBarBackground);
+        
+        actionBar.setBackgroundDrawable(background);
+        actionBar.setHomeButtonEnabled(true);
         
         mapView = (MapView) findViewById(R.id.mapview);
 		mapView.setBuiltInZoomControls(true);
@@ -106,16 +117,13 @@ public class MapsActivity extends MapActivity {
 		if (itemizedOverlay.getFocus() != null) outState.putInt("focused_1", itemizedOverlay.getLastFocusedIndex());
 		if (itemizedOverlay2.getFocus() != null) outState.putInt("focused_2", itemizedOverlay2.getLastFocusedIndex());
 		super.onSaveInstanceState(outState);
-	
-		// enables the activity icon as a 'home' button. required if "android:targetSdkVersion" > 14
-        getActionBar().setHomeButtonEnabled(true);
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(0, 0, 1, "Remove Overlay");
-		return true;
-	}
+//	@Override
+//	public boolean onCreateOptionsMenu(Menu menu) {
+//		menu.add(0, 0, 1, "Remove Overlay");
+//		return true;
+//	}
 	
 
 	@Override
