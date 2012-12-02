@@ -23,6 +23,7 @@ import android.widget.SearchView;
 import android.widget.StackView;
 import android.widget.TextView;
 
+import com.sparkgive.components.Card;
 import com.sparkgive.components.StackAdapter;
 import com.sparkgive.components.StackItem;
 import com.sparkgive.model.SparkGiveModel;
@@ -34,6 +35,8 @@ SearchView.OnCloseListener {
 	private TextView  mStatusView;
 	//private SearchView mSearchView;
 //	private Button mRedeemButton;
+	ArrayList<Card> mCardList;
+	ArrayList<StackItem> mStackItems;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,30 +62,34 @@ SearchView.OnCloseListener {
         publicCardsButton = (ImageView) findViewById(R.id.public_cards);
         settingsButton = (ImageView) findViewById(R.id.list);
         //mStatusView = (TextView) findViewById(R.id.status_text);
-//        mRedeemButton = (Button) findViewById(R.id.redeemButton);
+
         
         profileButton.setOnClickListener(this);
         mapsButton.setOnClickListener(this);
         publicCardsButton.setOnClickListener(this);
         settingsButton.setOnClickListener(this);
-//        mRedeemButton.setOnClickListener(this);
+
         
-      ///Stackview
-        StackView stk = (StackView)this.findViewById(R.id.stackView1);
+      
+//        reloadCards();
+        mCardList = SparkGiveModel.cardList; 
         
-        ArrayList<StackItem> items = new ArrayList<StackItem>();
-        items.add(new StackItem(this.getResources().getDrawable(R.drawable.d1)));
-        items.add(new StackItem(this.getResources().getDrawable(R.drawable.d2)));
-        items.add(new StackItem(this.getResources().getDrawable(R.drawable.d3)));
-        items.add(new StackItem(this.getResources().getDrawable(R.drawable.d3)));
-       
+        mStackItems = new ArrayList<StackItem>();
+        
+       loadStackView(mCardList.size());
  
-        StackAdapter adapt = new StackAdapter(this, R.layout.item, items);
- 
-        stk.setAdapter(adapt);
+       createStackView();
         
     }
 
+    private void createStackView() {
+    	///Stackview
+        StackView stk = (StackView)this.findViewById(R.id.stackView1);
+    	StackAdapter adapt = new StackAdapter(this, R.layout.item, mStackItems);
+    	 
+        stk.setAdapter(adapt); 
+    }
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -95,6 +102,12 @@ SearchView.OnCloseListener {
         return true;
     }
 
+    @Override
+    protected void onResume() {
+    	super.onResume();
+    	reloadCards();
+    	createStackView();
+    }
     
     @Override
 	public void onClick(View v) {
@@ -140,15 +153,39 @@ SearchView.OnCloseListener {
     }
 
     public boolean onQueryTextChange(String newText) {
-        mStatusView.setText("Query = " + newText);
+//        mStatusView.setText("Query = " + newText);
         return false;
     }
 
     public boolean onQueryTextSubmit(String query) {
-        mStatusView.setText("Query = " + query + " : submitted");
+//        mStatusView.setText("Query = " + query + " : submitted");
+    	search("kids");
         return false;
     }
+    
+    private void search(String query) {
+    	SparkGiveModel.cardList.clear();
+    	SparkGiveModel.cardList.add(new Card("details for shoppers drug mart", "sick kids", R.drawable.sick_kids_card));
+//    	loadStackView(length)
+    	return;
+    }
 
+    private void loadStackView(int length) {
+    	for (int i = 0; i<length; i++) {
+    		mStackItems.add(new StackItem(this.getResources().getDrawable(mCardList.get(i).getResourceId())));
+    	}
+    }
+    
+    private void reloadCards() {
+    	SparkGiveModel.cardList.clear();
+    	SparkGiveModel.cardList.add(new Card("details for PC", "food banks",R.drawable.food_banks_card));
+    	SparkGiveModel.cardList.add(new Card("details for shoppers drug mart", "sick kids", R.drawable.sick_kids_card));
+    	SparkGiveModel.cardList.add(new Card("details for starbucks", "breast cancer", R.drawable.breast_cancer_card));
+    	SparkGiveModel.cardList.add(new Card("details for PC", "food banks",R.drawable.food_banks_card));
+    	SparkGiveModel.cardList.add(new Card("details for shoppers drug mart", "sick kids", R.drawable.sick_kids_card));
+    	SparkGiveModel.cardList.add(new Card("details for starbucks", "breast cancer", R.drawable.breast_cancer_card));
+    }
+    
     public boolean onClose() {
         mStatusView.setText("Closed!");
         return false;
