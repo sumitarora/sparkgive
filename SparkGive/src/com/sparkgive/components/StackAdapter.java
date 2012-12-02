@@ -49,10 +49,7 @@ public class StackAdapter extends ArrayAdapter<StackItem>   {
                 ImageView img = (ImageView)v.findViewById(R.id.imageView1);
                 
                 if (img != null) {
-                   
-                    img.setImageDrawable(m.itemPhoto);
-                    
-                    
+                		img.setImageDrawable(m.itemPhoto);
                     }
         }
        v.setOnClickListener(new OnClickListener(){

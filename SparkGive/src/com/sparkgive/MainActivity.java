@@ -53,7 +53,6 @@ SearchView.OnCloseListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        // enables the activity icon as a 'home' button. required if "android:targetSdkVersion" > 14
         final ActionBar actionBar = getActionBar(); 
         Bitmap actionBarBackground = BitmapFactory.decodeResource(getResources(), R.drawable.footer_bar);
         BitmapDrawable background = new BitmapDrawable(getResources(), actionBarBackground);
@@ -75,12 +74,11 @@ SearchView.OnCloseListener {
 
         
       
-//        reloadCards();
-         
+        reloadCards();
+        mStackItems = new ArrayList<StackItem>();
         
-       mStackItems = new ArrayList<StackItem>();
-       createStackView();
-        
+        //loadStackView(mCardList.size());
+        createStackView();
     }
 
     private void createStackView() {
@@ -89,10 +87,8 @@ SearchView.OnCloseListener {
     	for (int i = 0; i<mCardList.size(); i++) {
     		mStackItems.add(new StackItem(this.getResources().getDrawable(mCardList.get(i).getResourceId())));
     	}
-    	///Stackview
         StackView stk = (StackView)this.findViewById(R.id.stackView1);
     	StackAdapter adapt = new StackAdapter(this, R.layout.item, mStackItems);
-    	 
         stk.setAdapter(adapt);
     }
     
@@ -134,7 +130,6 @@ SearchView.OnCloseListener {
 			startActivity(new Intent(getApplicationContext(), PublicCardsActivity.class));
 			break;
 		case R.id.list:
-//			startActivity(new Intent(getApplicationContext(), TestSearchActivity.class));
 			break;
 		
 		}
@@ -161,18 +156,7 @@ SearchView.OnCloseListener {
 
         mSearchView.setOnQueryTextListener(this);
         mSearchView.setOnCloseListener(this);
-    }
-
-
-//        @Override
-//        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-//            	search("kids");
-//                return true;
-//            }
-//            return false;
-//        }
-    
+    }    
     
     public boolean onQueryTextChange(String newText) {
 //        mStatusView.setText("Query = " + newText);
@@ -187,7 +171,7 @@ SearchView.OnCloseListener {
     
     private void search(String query) {
     	SparkGiveModel.cardList.clear();
-    	SparkGiveModel.cardList.add(new Card("details for shoppers drug mart", "sick kids", R.drawable.sick_kids_card));
+    	SparkGiveModel.cardList.add(new Card("details for shoppers drug mart", "sick kids", R.drawable.sick_kids_card, R.drawable.back_sickkids));
     	createStackView();
     	return;
     }
@@ -196,12 +180,11 @@ SearchView.OnCloseListener {
     
     private void reloadCards() {
     	SparkGiveModel.cardList.clear();
-    	SparkGiveModel.cardList.add(new Card("details for PC", "food banks",R.drawable.food_banks_card));
-    	SparkGiveModel.cardList.add(new Card("details for shoppers drug mart", "sick kids", R.drawable.sick_kids_card));
-    	SparkGiveModel.cardList.add(new Card("details for starbucks", "breast cancer", R.drawable.breast_cancer_card));
-    	SparkGiveModel.cardList.add(new Card("details for PC", "food banks",R.drawable.food_banks_card));
-    	SparkGiveModel.cardList.add(new Card("details for shoppers drug mart", "sick kids", R.drawable.sick_kids_card));
-    	SparkGiveModel.cardList.add(new Card("details for starbucks", "breast cancer", R.drawable.breast_cancer_card));
+    	SparkGiveModel.cardList.add(new Card("details for PC", "food banks",R.drawable.pc_card, R.drawable.back_loblaws));
+    	SparkGiveModel.cardList.add(new Card("details for shoppers drug mart", "sick kids", R.drawable.sick_kids_card, R.drawable.back_sickkids));
+    	SparkGiveModel.cardList.add(new Card("details for starbucks", "breast cancer", R.drawable.breast_cancer_card, R.drawable.back_starbucks));
+    	SparkGiveModel.cardList.add(new Card("details for Toysrus", "food banks",R.drawable.food_banks_card, R.drawable.back_toysrus));
+    	SparkGiveModel.cardList.add(new Card("details for Wallmart", "food banks",R.drawable.pc_card, R.drawable.back_walmart));
     }
     
     public boolean onClose() {
