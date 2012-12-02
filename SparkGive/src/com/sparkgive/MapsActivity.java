@@ -53,36 +53,24 @@ public class MapsActivity extends MapActivity {
 		itemizedOverlay.setShowDisclosure(true);
 		itemizedOverlay.setSnapToCenter(false);
 		
-		GeoPoint point = new GeoPoint((int)(51.5174723*1E6),(int)(-0.0899537*1E6));
-		OverlayItem overlayItem = new OverlayItem(point, "Tomorrow Never Dies (1997)", 
-				"(M gives Bond his mission in Daimler car)");
+		GeoPoint point = new GeoPoint((int)(43.6454314*1E6),(int)(-79.3697728*1E6));
+		OverlayItem overlayItem = new OverlayItem(point, "Loblaws Superstore: Live Healthy", 
+				"In partnership with The Food Bank");
 		itemizedOverlay.addOverlay(overlayItem);
 		
-		GeoPoint point2 = new GeoPoint((int)(51.515259*1E6),(int)(-0.086623*1E6));
-		OverlayItem overlayItem2 = new OverlayItem(point2, "GoldenEye (1995)", 
-				"(Interiors Russian defence ministry council chambers in St Petersburg)");		
+		GeoPoint point2 = new GeoPoint((int)(43.6475768*1E6),(int)(-79.4020997*1E6));
+		OverlayItem overlayItem2 = new OverlayItem(point2, "Shoppers Drug Mart Taking Care Of You", 
+				"In partnership with Sick Kids Foundation");		
 		itemizedOverlay.addOverlay(overlayItem2);
+		
+		GeoPoint point3 = new GeoPoint((int)(43.6472549*1E6),(int)(-79.4037073*1E6));
+		OverlayItem overlayItem3 = new OverlayItem(point3, "Your Friendly Neighbourhood Starbucks", 
+				"In partnership with Sick Kids Foundation");		
+		itemizedOverlay.addOverlay(overlayItem3);
 		
 		mapOverlays.add(itemizedOverlay);
 		
-		// second overlay
-		drawable2 = getResources().getDrawable(R.drawable.marker2);
-		itemizedOverlay2 = new SimpleItemizedOverlay(drawable2, mapView);
-		// set iOS behavior attributes for overlay
-		itemizedOverlay2.setShowClose(false);
-		itemizedOverlay2.setShowDisclosure(true);
-		itemizedOverlay2.setSnapToCenter(false);
 		
-		GeoPoint point3 = new GeoPoint((int)(51.513329*1E6),(int)(-0.08896*1E6));
-		OverlayItem overlayItem3 = new OverlayItem(point3, "Sliding Doors (1998)", null);
-		itemizedOverlay2.addOverlay(overlayItem3);
-		
-		GeoPoint point4 = new GeoPoint((int)(51.51738*1E6),(int)(-0.08186*1E6));
-		OverlayItem overlayItem4 = new OverlayItem(point4, "Mission: Impossible (1996)", 
-				"(Ethan & Jim cafe meeting)");
-		itemizedOverlay2.addOverlay(overlayItem4);
-		
-		mapOverlays.add(itemizedOverlay2);
 		
 		if (savedInstanceState == null) {
 			
@@ -98,10 +86,7 @@ public class MapsActivity extends MapActivity {
 			if (focused >= 0) {
 				itemizedOverlay.setFocus(itemizedOverlay.getItem(focused));
 			}
-			focused = savedInstanceState.getInt("focused_2", -1);
-			if (focused >= 0) {
-				itemizedOverlay2.setFocus(itemizedOverlay2.getItem(focused));
-			}
+			
 			
 		}
 		
@@ -117,7 +102,7 @@ public class MapsActivity extends MapActivity {
 		
 		// example saving focused state of overlays
 		if (itemizedOverlay.getFocus() != null) outState.putInt("focused_1", itemizedOverlay.getLastFocusedIndex());
-		if (itemizedOverlay2.getFocus() != null) outState.putInt("focused_2", itemizedOverlay2.getLastFocusedIndex());
+		
 		super.onSaveInstanceState(outState);
 	
 	}

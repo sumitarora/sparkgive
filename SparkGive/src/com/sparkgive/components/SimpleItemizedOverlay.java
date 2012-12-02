@@ -18,27 +18,27 @@ package com.sparkgive.components;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.widget.Toast;
 
 import com.google.android.maps.MapView;
 import com.google.android.maps.OverlayItem;
-
-
+import com.sparkgive.RedeemActivity;
 
 public class SimpleItemizedOverlay extends BalloonItemizedOverlay<OverlayItem> {
 
 	private ArrayList<OverlayItem> m_overlays = new ArrayList<OverlayItem>();
 	private Context c;
-	
+
 	public SimpleItemizedOverlay(Drawable defaultMarker, MapView mapView) {
 		super(boundCenter(defaultMarker), mapView);
 		c = mapView.getContext();
 	}
 
 	public void addOverlay(OverlayItem overlay) {
-	    m_overlays.add(overlay);
-	    populate();
+		m_overlays.add(overlay);
+		populate();
 	}
 
 	@Override
@@ -53,9 +53,12 @@ public class SimpleItemizedOverlay extends BalloonItemizedOverlay<OverlayItem> {
 
 	@Override
 	protected boolean onBalloonTap(int index, OverlayItem item) {
-		Toast.makeText(c, "onBalloonTap for overlay index " + index,
-				Toast.LENGTH_LONG).show();
+		Intent intent = new Intent(c, RedeemActivity.class);
+		
+
+		intent.putExtra("tag", index);
+		c.startActivity(intent);
 		return true;
 	}
-	
+
 }
